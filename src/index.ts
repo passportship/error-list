@@ -16,4 +16,5 @@ export {
     TooManyRequestsHttpError,
     NotImplementedHttpError
 } from './errors';
+
 export { errorHandler } from './error-handler';
