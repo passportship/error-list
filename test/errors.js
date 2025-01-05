@@ -1,15 +1,12 @@
-'use strict';
-
 const assert = require('assert');
 const ErrorList = require('../lib/errors');
-
 
 describe('Errors', function () {
     describe('#HttpError', function () {
         it('error object should has all presented properties', function () {
-            let err = new ErrorList.HttpError(404, 'Resource not found', 1234);
+            const err = new ErrorList.HttpError(404, 'Resource not found', 1234);
 
-            console.log(err.time)
+            console.log(err.time);
 
             assert(err instanceof ErrorList.HttpError);
             assert(err instanceof ErrorList.BaseError);
