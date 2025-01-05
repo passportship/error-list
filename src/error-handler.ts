@@ -1,11 +1,12 @@
 import * as http from 'http';
 import { HttpError } from './errors';
 
-export const errorHandler = function (debugMode: boolean = false) {
-    return function (err, req, res, next) {
+export const errorHandler = (debugMode: boolean = false) => {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    return (err: any, req: any, res: any, next: any) => {
         const statusCode = err.statusCode || 500;
 
-        const data: {message?: string, code?: number, errors?: any} = {
+        const data: { message?: string; code?: number; errors?: any } = {
             message: 'Internal Server Error'
         };
 
@@ -24,8 +25,10 @@ export const errorHandler = function (debugMode: boolean = false) {
         const time = (err.time || new Date()).toUTCString().slice(5, -4);
 
         if (debugMode && statusCode >= 500) {
+            // eslint-disable-next-line no-console
             console.error(time, err.stack);
         } else {
+            // eslint-disable-next-line no-console
             console.log(time, '- [error]', data.message);
         }
 

@@ -1,3 +1,4 @@
+/* eslint-disable max-classes-per-file */
 import * as http from 'http';
 
 export interface IBaseError extends Error {
@@ -8,7 +9,10 @@ export interface IBaseError extends Error {
 export class BaseError extends Error implements IBaseError {
     readonly time: Date;
 
-    constructor(message?: string, public code: number = 0) {
+    constructor(
+        message?: string,
+        public code: number = 0
+    ) {
         super(message);
 
         Error.captureStackTrace(this, this.constructor);
@@ -29,9 +33,13 @@ export interface IHttpError extends IBaseError {
  * @param code
  */
 export class HttpError extends BaseError implements IHttpError {
-    public statusMessage: string;
+    public statusMessage: string | undefined;
 
-    constructor(public statusCode: number = 500, message?: string, code?: number) {
+    constructor(
+        public statusCode: number = 500,
+        message?: string,
+        code?: number
+    ) {
         super(message, code);
 
         this.statusMessage = http.STATUS_CODES[statusCode];
@@ -97,7 +105,15 @@ export interface IValidationError extends IHttpError {
 }
 
 export class ValidationHttpError extends HttpError implements IValidationError {
-    constructor(public errors: any, message = 'Validation Failed', statusCode: number = 422, code?: number) {
+    // eslint-disable-next-line default-param-last
+    constructor(
+        public errors: any,
+        // eslint-disable-next-line default-param-last
+        message = 'Validation Failed',
+        // eslint-disable-next-line default-param-last
+        statusCode: number = 422,
+        code?: number
+    ) {
         super(statusCode, message, code);
     }
 }

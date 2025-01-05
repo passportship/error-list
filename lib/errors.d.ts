@@ -18,7 +18,7 @@ export interface IHttpError extends IBaseError {
  */
 export declare class HttpError extends BaseError implements IHttpError {
     statusCode: number;
-    statusMessage: string;
+    statusMessage: string | undefined;
     constructor(statusCode?: number, message?: string, code?: number);
 }
 export declare class BadRequestHttpError extends HttpError {
