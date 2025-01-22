@@ -22,6 +22,7 @@
 * [ForbiddenHttpError](#ForbiddenHttpError)
 * [NotFoundHttpError](#NotFoundHttpError)
 * [MethodNotAllowedHttpError](#MethodNotAllowedHttpError)
+* [ConflictHttpError](#ConflictHttpError)
 * [GoneHttpError](#GoneHttpError)
 * [UnsupportedMediaTypeHttpError](#UnsupportedMediaTypeHttpError)
 * [UnprocessableEntityHttpError](#UnprocessableEntityHttpError)
@@ -85,6 +86,10 @@ NotFoundHttpError represents a "Not Found" HTTP exception with status code 404.
 ### MethodNotAllowedHttpError
 
 MethodNotAllowedHttpError represents a "Method Not Allowed" HTTP exception with status code 405.
+
+### ConflictHttpError
+
+ConflictHttpError represents a "Conflict" HTTP exception with status code 409.
 
 ### GoneHttpError
 
