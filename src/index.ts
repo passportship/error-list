@@ -9,6 +9,7 @@ export {
     NotFoundHttpError,
     MethodNotAllowedHttpError,
     NotAcceptableHttpError,
+    ConflictHttpError,
     GoneHttpError,
     UnsupportedMediaTypeHttpError,
     UnprocessableEntityHttpError,

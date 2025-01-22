@@ -82,6 +82,12 @@ export class NotAcceptableHttpError extends HttpError {
     }
 }
 
+export class ConflictHttpError extends HttpError {
+    constructor(message?: string, code?: number) {
+        super(409, message, code);
+    }
+}
+
 export class GoneHttpError extends HttpError {
     constructor(message?: string, code?: number) {
         super(410, message, code);
